@@ -1,0 +1,42 @@
+{
+  "name": "developer-card-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GraphQL-визитка Юрия Пака",
+  "engines": {
+    "node": "^22.15.0 || ^24.0.0"
+  },
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.json",
+    "start": "npm run db:prepare && node dist/src/main.js",
+    "db:prepare": "prisma migrate deploy && node dist/prisma/seed.js",
+    "smoke": "node --test test/smoke.test.mjs"
+  },
+  "dependencies": {
+    "@apollo/server": "5.5.2",
+    "@as-integrations/express5": "1.1.2",
+    "@nestjs/apollo": "14.2.1",
+    "@nestjs/common": "12.5.0",
+    "@nestjs/core": "12.5.0",
+    "@nestjs/graphql": "14.2.1",
+    "@nestjs/platform-express": "12.5.0",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "dotenv": "17.4.2",
+    "graphql": "16.15.0",
+    "pg": "8.23.1",
+    "prisma": "7.10.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@apollo/server": {
+      "@graphql-tools/utils": "12.1.0"
+    }
+  }
+}
